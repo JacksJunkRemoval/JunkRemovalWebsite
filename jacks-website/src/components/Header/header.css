@@ -1,3 +1,55 @@
+body {
+  background: url('../public/MainImage.webp') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure the header is above other elements */
+  /*background: rgba(0, 0, 0, 0.5);*/
+}
+
+.header-mobile {
+  /*background: rgba(0, 0, 0, 0.5);*/
+}
+
+.menu-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 30;
+}
+
+.menu-button .bar {
+  width: 30px; /* Increase the width */
+  height: 3px; /* Increase the height */
+  background-color: white; /* Ensure the color is visible */
+  transition: all 0.3s ease;
+}
+
+.menu-button.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.is-active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button.is-active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 @keyframes slideDown {
     from {
       transform: translateY(-100%);
@@ -20,42 +72,10 @@
     }
   }
   
-  .dropdown-enter {
-    animation: slideDown 0.3s ease-out forwards;
-  }
+.dropdown-enter {
+  animation: slideDown 0.3s ease-out forwards;
+}
   
-  .dropdown-exit {
-    animation: slideUp 0.3s ease-out forwards;
-  }
-  
-  .menu-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 30;
-  }
-  
-  .menu-button .bar {
-    width: 24px;
-    height: 2px;
-    background-color: white;
-    transition: all 0.3s ease;
-  }
-  
-  .menu-button.is-active .bar:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-button.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  
-  .menu-button.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+.dropdown-exit {
+  animation: slideUp 0.3s ease-out forwards;
+}

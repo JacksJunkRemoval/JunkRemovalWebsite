@@ -1,0 +1,42 @@
+.input-field {
+    border: solid #014421;
+    color: #014421;
+    border-radius: 0.225em;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.input-field:focus {
+    border: solid #014421;
+  }
+
+.input-field::placeholder {
+    color: #014421;
+}
+
+label {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    transition: 0.2s;
+}
+
+input:focus ~ label,
+input:not(.phone):valid ~ label:not(.phone),
+input.has-content ~ label {
+    top: -24px;
+    font-size: 14px;
+}
+
+textarea:focus ~ label,
+textarea:valid ~ label,
+textarea.has-content ~ label {
+    top: -24px;
+    font-size: 14px;
+}
+
+input:active ~ label {
+    top:-24px;
+    font-size: 14px;
+}
+

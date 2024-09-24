@@ -6,16 +6,20 @@ body {
 }
 
 .header {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Ensure the header is above other elements */
-  /*background: rgba(0, 0, 0, 0.5);*/
+  position: relative;
+  isolation: isolate;
+  z-index: 20;
 }
 
 .header-mobile {
-  /*background: rgba(0, 0, 0, 0.5);*/
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 30;
 }
 
 .menu-button {
@@ -32,9 +36,9 @@ body {
 }
 
 .menu-button .bar {
-  width: 30px; /* Increase the width */
-  height: 3px; /* Increase the height */
-  background-color: white; /* Ensure the color is visible */
+  width: 30px; 
+  height: 3px;
+  background-color: white; 
   transition: all 0.3s ease;
 }
 

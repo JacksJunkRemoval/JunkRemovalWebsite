@@ -1,10 +1,127 @@
-import React from 'react';
+import React, {useState, useRef, useEffect} from 'react';
+import ReactBeforeSliderComponent from 'react-before-after-slider-component';
+import 'react-before-after-slider-component/dist/build.css';
+import './OurWork.css'
 
-const OurWorkPage: React.FC = () => {
+interface LandingPageProps {
+  isNavbarOpen: boolean;
+}
+
+const DEFAULT_DURATION = 800;
+
+const DEMONSTRATION_DELAY = 1000;
+
+type Animation = {
+  start: number;
+  end: number;
+  duration: number;
+};
+
+const START_POSITION = 55;
+const END_POSITION_1 = 35;
+const END_POSITION_2 = 80;
+
+const ANIMATIONS: Animation[] = [
+  { start: START_POSITION, end: END_POSITION_1, duration: DEFAULT_DURATION },
+  { start: END_POSITION_1, end: END_POSITION_1, duration: 30 },
+  { start: END_POSITION_1, end: END_POSITION_2, duration: DEFAULT_DURATION },
+];
+
+function timePhaseToCoordinateDifferenceCoefficient(x: number) {
+  return (Math.sin(x * Math.PI - Math.PI / 2) + 1) / 2;
+}
+
+const OurWorkPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
+  const JOB1_BEFORE = { imageUrl: 'https://picsum.photos/id/236/300' };
+  const JOB1_AFTER = { imageUrl: 'https://picsum.photos/id/237/300' };
+
+  const JOB2_BEFORE = { imageUrl: 'https://picsum.photos/id/239/300' };
+  const JOB2_AFTER = { imageUrl: 'https://picsum.photos/id/240/300' };
+
+
+  /** Delimiter */
+  const [delimiterPercentPosition, setDelimiterPercentPosition] = useState<number>(START_POSITION);
+  
+      /** Animation start */
+  const allAnimationsRef = useRef<Animation[]>([]);
+  const animationStartTimeRef = useRef<number | null>(null);
+  const animationPositionsRef = useRef<Animation | null>(null);
+  const animate = (timestamp: number) => {
+    let animationPositions = animationPositionsRef.current;
+
+  if (!animationPositions) {
+    const currentAnimation = allAnimationsRef.current.shift();
+    if (!currentAnimation) {
+      return;
+    }
+    animationPositions = animationPositionsRef.current = currentAnimation;
+  }
+
+  let animationStartTime = animationStartTimeRef.current;
+  if (!animationStartTime) {
+      animationStartTime = animationStartTimeRef.current = timestamp;
+  }
+
+  const {
+      start: animationStartPosition,
+      end: animationEndPosition,
+      duration: animationDuration
+  } = animationPositions;
+
+  if (timestamp > animationStartTime + animationDuration) {
+    setDelimiterPercentPosition(animationEndPosition);
+    animationPositionsRef.current = null;
+    animationStartTimeRef.current = null;
+  } else {
+    const animationPhase = (timestamp - animationStartTime) / animationDuration;
+    const coordinatesDifference =
+        (animationEndPosition - animationStartPosition)
+        * timePhaseToCoordinateDifferenceCoefficient(animationPhase);
+
+    setDelimiterPercentPosition(animationStartPosition + coordinatesDifference);
+  }
+
+      window.requestAnimationFrame(animate);
+  }
+
+    const demonstrate = () => {
+        allAnimationsRef.current = [...ANIMATIONS];
+        setTimeout(() => window.requestAnimationFrame(animate), DEMONSTRATION_DELAY);
+    };
+
+    useEffect(() => {
+      demonstrate();
+  }, []);
+
+      
+      /** Animation end */
 
   return (
-    <div className="text-center p-10">
-      <h1 className="text-3xl font-bold mb-4">Our Work</h1>
+    <div className="text-center p-10 min-h-[72vh] bg-white">
+
+      <h1 className={`text-3xl font-bold mb-4 ${isNavbarOpen ? 'visible' : 'visible'}`}>Our Work</h1>
+
+      <p className={`font-bold ${isNavbarOpen ? 'visivle' : 'visible'}`}>Drag the sliders below to see before and after!</p>
+
+      <div className='all-work-container bg-white'>
+
+        <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+          <ReactBeforeSliderComponent
+            currentPercentPosition={delimiterPercentPosition}
+            firstImage={JOB1_BEFORE}
+            secondImage={JOB1_AFTER}
+            onChangePercentPosition={setDelimiterPercentPosition}
+          />
+        </div>
+
+        <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+          <ReactBeforeSliderComponent
+            firstImage={JOB2_BEFORE}
+            secondImage={JOB2_AFTER}
+          />
+        </div>
+
+      </div>
     </div>
   );
 };

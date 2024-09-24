@@ -7,6 +7,12 @@ export default {
   theme: {
     extend: {},
   },
+  variants: {
+    extend: {
+      translate: ['peer-focus', 'peer-not-placeholder-shown'],
+      fontSize: ['peer-focus', 'peer-not-placeholder-shown'],
+    },
+  },
   plugins: [],
 }
 

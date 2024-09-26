@@ -32,11 +32,32 @@ function timePhaseToCoordinateDifferenceCoefficient(x: number) {
 }
 
 const OurWorkPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
-  const JOB1_BEFORE = { imageUrl: 'https://picsum.photos/id/236/300' };
-  const JOB1_AFTER = { imageUrl: 'https://picsum.photos/id/237/300' };
+  const JOB1_BEFORE = { imageUrl: '/before+after/1Before.png' };
+  const JOB1_AFTER = { imageUrl: '/before+after/1After.png' };
 
-  const JOB2_BEFORE = { imageUrl: 'https://picsum.photos/id/239/300' };
-  const JOB2_AFTER = { imageUrl: 'https://picsum.photos/id/240/300' };
+  const JOB2_BEFORE = { imageUrl: '/before+after/2Before.png' };
+  const JOB2_AFTER = { imageUrl: '/before+after/2After.png' };
+
+  const JOB3_BEFORE = { imageUrl: '/before+after/3Before.png' };
+  const JOB3_AFTER = { imageUrl: '/before+after/3After.png' };
+
+  const JOB4_BEFORE = { imageUrl: '/before+after/4Before.png' };
+  const JOB4_AFTER = { imageUrl: '/before+after/4After.png' };
+
+  const JOB5_BEFORE = { imageUrl: '/before+after/5Before.png' };
+  const JOB5_AFTER = { imageUrl: '/before+after/5After.png' };
+
+  const JOB6_BEFORE = { imageUrl: '/before+after/6Before.png' };
+  const JOB6_AFTER = { imageUrl: '/before+after/6After.png' };
+
+  const JOB7_BEFORE = { imageUrl: '/before+after/7Before.png' };
+  const JOB7_AFTER = { imageUrl: '/before+after/7After.png' };
+
+  const JOB8_BEFORE = { imageUrl: '/before+after/8Before.png' };
+  const JOB8_AFTER = { imageUrl: '/before+after/8After.png' };
+
+  const JOB9_BEFORE = { imageUrl: '/before+after/9Before.png' };
+  const JOB9_AFTER = { imageUrl: '/before+after/9After.png' };
 
 
   /** Delimiter */
@@ -97,29 +118,78 @@ const OurWorkPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
       /** Animation end */
 
   return (
-    <div className="text-center p-10 min-h-[72vh] bg-white">
+    <div className="text-center p-10 min-h-[72vh] bg-white flex-col flex justify-center items-center">
 
       <h1 className={`text-3xl font-bold mb-4 ${isNavbarOpen ? 'visible' : 'visible'}`}>Our Work</h1>
 
       <p className={`font-bold ${isNavbarOpen ? 'visivle' : 'visible'}`}>Drag the sliders below to see before and after!</p>
 
-      <div className='all-work-container bg-white'>
+      <div className='all-work-container lg:w-[80%]'>
 
         <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
           <ReactBeforeSliderComponent
             currentPercentPosition={delimiterPercentPosition}
-            firstImage={JOB1_BEFORE}
-            secondImage={JOB1_AFTER}
+            firstImage={JOB1_AFTER}
+            secondImage={JOB1_BEFORE}
             onChangePercentPosition={setDelimiterPercentPosition}
           />
         </div>
 
         <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
           <ReactBeforeSliderComponent
-            firstImage={JOB2_BEFORE}
-            secondImage={JOB2_AFTER}
+            firstImage={JOB2_AFTER}
+            secondImage={JOB2_BEFORE}
           />
         </div>
+
+        <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+          <ReactBeforeSliderComponent
+            firstImage={JOB3_AFTER}
+            secondImage={JOB3_BEFORE}
+          />
+        </div>
+
+        <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <ReactBeforeSliderComponent
+          firstImage={JOB4_AFTER}
+          secondImage={JOB4_BEFORE}
+        />
+      </div>
+
+      <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <ReactBeforeSliderComponent
+          firstImage={JOB5_AFTER}
+          secondImage={JOB5_BEFORE}
+        />
+      </div>
+
+      <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <ReactBeforeSliderComponent
+          firstImage={JOB6_AFTER}
+          secondImage={JOB6_BEFORE}
+        />
+      </div>
+
+      <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <ReactBeforeSliderComponent
+          firstImage={JOB7_AFTER}
+          secondImage={JOB7_BEFORE}
+        />
+      </div>
+
+      <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <ReactBeforeSliderComponent
+          firstImage={JOB8_AFTER}
+          secondImage={JOB8_BEFORE}
+        />
+      </div>
+
+      <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <ReactBeforeSliderComponent
+          firstImage={JOB9_AFTER}
+          secondImage={JOB9_BEFORE}
+        />
+      </div>
 
       </div>
     </div>

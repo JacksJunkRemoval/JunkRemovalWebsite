@@ -43,7 +43,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
       <section className='p-8 flex flex-col text-center items-center justify-center'>
         <h2 className='text-3xl font-bold mb-[20px] text-[#014421]'>See some examples of our previous work!</h2>
 
-        <div className='all-work-container-main lg:w-[80%] bg-[green]'>
+        <div className='all-work-container-main lg:w-[80%]'>
 
         <div className={`slider-container-main ${isNavbarOpen ? 'visible' : 'visible'}`}>
           <ReactBeforeSliderComponent

@@ -13,11 +13,17 @@ const Header: React.FC<HeaderProps> = ({ toggleNavbar }) => {
   const toggleMenu = () => {
     if (isOpen) {
       // Set up to trigger slideUp animation
-      document.querySelector('.dropdown-menu').classList.add('dropdown-exit');
-      setTimeout(() => {
-        setIsOpen(false);
-        document.querySelector('.dropdown-menu').classList.remove('dropdown-exit');
-      }, 100); // Duration of the slideUp animation
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      if (dropdownMenu) {
+        dropdownMenu.classList.add('dropdown-exit');
+        setTimeout(() => {
+          setIsOpen(false);
+          const dropdownMenuAfterTimeout = document.querySelector('.dropdown-menu');
+          if (dropdownMenuAfterTimeout) {
+            dropdownMenuAfterTimeout.classList.remove('dropdown-exit');
+          }
+        }, 100); // Duration of the slideUp animation
+      }
     } else {
       setIsOpen(true);
     }

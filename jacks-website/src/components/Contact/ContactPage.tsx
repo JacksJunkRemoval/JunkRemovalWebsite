@@ -12,11 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import './ContactPage.css'
 
-interface LandingPageProps {
-  isNavbarOpen: boolean;
-}
-
-const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
+const ContactPage: React.FC = ({}) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);

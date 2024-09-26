@@ -32,7 +32,7 @@ const FAQPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
 
   const [selected, setSelected] = useState<number | null>(null);
 
-  const handleAccordionChange = (panel: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+  const handleAccordionChange = (panel: number) => (_: React.SyntheticEvent, isExpanded: boolean) => {
     setSelected(isExpanded ? panel : null);
   };
 

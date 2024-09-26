@@ -1,4 +1,4 @@
-.all-work-container {
+.all-work-container-main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -6,12 +6,12 @@
   }
   
 @media (min-width: 768px) {
-    .all-work-container {
+    .all-work-container-main {
       grid-template-columns: 1fr 1fr;
     }
 }
 
-.slider-container {
+.slider-container-main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@
     overflow: hidden;
 }
 
-.slider-container img {
+.slider-container-main img {
   width: 100%;
   height: auto;
   object-fit: cover;

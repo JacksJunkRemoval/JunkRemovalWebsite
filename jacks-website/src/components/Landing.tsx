@@ -43,16 +43,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
       <section className='p-8 flex flex-col text-center items-center justify-center'>
         <h2 className='text-3xl font-bold mb-[20px] text-[#014421]'>See some examples of our previous work!</h2>
 
-        <div className='all-work-container lg:w-[80%]'>
+        <div className='all-work-container-main lg:w-[80%] bg-[green]'>
 
-        <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <div className={`slider-container-main ${isNavbarOpen ? 'visible' : 'visible'}`}>
           <ReactBeforeSliderComponent
             firstImage={JOB1_AFTER}
             secondImage={JOB1_BEFORE}
           />
         </div>
 
-        <div className={`slider-container ${isNavbarOpen ? 'visible' : 'visible'}`}>
+        <div className={`slider-container-main ${isNavbarOpen ? 'visible' : 'visible'}`}>
           <ReactBeforeSliderComponent
             firstImage={JOB2_AFTER}
             secondImage={JOB2_BEFORE}
@@ -63,7 +63,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
 
         <Link to="/ourwork">
           <button className='bg-[#014421] mt-[40px] px-8 py-4 rounded-lg text-xl font-bold text-white transform transition-transform duration-300 ease-in-out hover:scale-105'>
-            See our Work!
+            Click Here For More!
           </button>
         </Link>
 

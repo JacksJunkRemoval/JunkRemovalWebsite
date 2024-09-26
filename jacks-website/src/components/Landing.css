@@ -1,3 +1,9 @@
+.landing {
+  background: url('/MainImage.webp') no-repeat center center;
+  background-size: cover;
+
+}
+
 .all-work-container-main {
     display: grid;
     grid-template-columns: 1fr;

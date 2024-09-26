@@ -48,7 +48,7 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
     setIsSubmitting(true);
 
     try {
-      await axios.post('http://localhost:5002/api/contact', formData);
+      await axios.post('https://jacks-website-backend.onrender.com/api/contact', formData);
       alert('Message sent successfully!');
       setFormData({
         firstname: '',

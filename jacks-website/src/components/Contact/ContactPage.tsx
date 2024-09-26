@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser,
@@ -40,39 +41,14 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
     const value = target.value;
 
     setFormData({ ...formData, [name]: value });
-
-    if (value) {
-      target.classList.add('has-content');
-    } else {
-      target.classList.remove('has-content');
-    }
   };
-
-  useEffect(() => {
-    const inputs = document.querySelectorAll(
-      'input.keep-raised, textarea.keep-raised'
-    );
-    inputs.forEach((input) => {
-      if ((input as HTMLInputElement).value) {
-        input.classList.add('has-content');
-      }
-      input.addEventListener('input', handleInputChange as any);
-    });
-
-    return () => {
-      inputs.forEach((input) => {
-        input.removeEventListener('input', handleInputChange as any);
-      });
-    };
-  }, []);
-
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
 
     try {
-      await axios.post('http://localhost:5001/api/contact', formData);
+      await axios.post('http://localhost:5002/api/contact', formData);
       alert('Message sent successfully!');
       setFormData({
         firstname: '',
@@ -113,7 +89,9 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
                 required
                 value={formData.firstname}
                 onChange={handleInputChange}
-                className="w-full input-field pl-10 py-2"
+                className={`w-full input-field pl-10 py-2 ${
+                  formData.firstname ? 'has-content' : ''
+                }`}
               />
               <label htmlFor="firstname" className="text-[#014421]">
                 <FontAwesomeIcon icon={faUser} className="fa-solid" /> First
@@ -128,7 +106,9 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
                 required
                 value={formData.lastname}
                 onChange={handleInputChange}
-                className="w-full input-field pl-10 py-2"
+                className={`w-full input-field pl-10 py-2 ${
+                  formData.lastname ? 'has-content' : ''
+                }`}
               />
               <label htmlFor="lastname" className="text-[#014421]">
                 <FontAwesomeIcon icon={faUser} className="fa-solid" /> Last Name
@@ -143,7 +123,9 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
               required
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full input-field pl-10 py-2 keep-raised"
+              className={`w-full input-field pl-10 py-2 keep-raised ${
+                formData.email ? 'has-content' : ''
+              }`}
             />
             <label htmlFor="email" className="text-[#014421]">
               <FontAwesomeIcon icon={faEnvelope} className="fa-solid" /> Email
@@ -156,7 +138,9 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full phone input-field pl-10 py-2 keep-raised"
+              className={`w-full phone input-field pl-10 py-2 keep-raised ${
+                formData.phone ? 'has-content' : ''
+              }`}
             />
             <label htmlFor="phone" className="text-[#014421] phone">
               <FontAwesomeIcon icon={faPhone} className="fa-solid" /> Phone
@@ -171,7 +155,10 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
               required
               value={formData.subject}
               onChange={handleInputChange}
-              className="w-full input-field pl-10 py-2"
+              className={`w-full input-field pl-10 py-2 ${
+                formData.subject ? 'has-content' : ''
+              }`}
+
             />
             <label htmlFor="subject" className="text-[#014421]">
               <FontAwesomeIcon icon={faTag} className="fa-solid" /> Subject
@@ -185,7 +172,9 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
               required
               value={formData.message}
               onChange={handleInputChange}
-              className="w-full input-field pl-10 py-2"
+              className={`w-full input-field pl-10 py-2 ${
+                formData.message ? 'has-content' : ''
+              }`}
             ></textarea>
             <label htmlFor="message" className="text-[#014421]">
               <FontAwesomeIcon icon={faComments} className="fa-solid" /> Message

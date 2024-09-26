@@ -17,6 +17,10 @@ interface LandingPageProps {
 
 const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -95,7 +99,7 @@ const ContactPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
           </h1>
           <h3 className="text-6xl font-bold text-[#014421]">-</h3>
           <h3 className="text-xl md:text-3xl mt-4 font-bold text-[#014421]">
-            Just fill out the information below and I'll get back to you as soon
+            Just fill out the information below and we'll get back to you as soon
             as possible!
           </h3>
         </div>

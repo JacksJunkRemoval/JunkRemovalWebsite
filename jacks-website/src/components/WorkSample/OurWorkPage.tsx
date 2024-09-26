@@ -59,6 +59,10 @@ const OurWorkPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
   const JOB9_BEFORE = { imageUrl: '/before+after/9Before.png' };
   const JOB9_AFTER = { imageUrl: '/before+after/9After.png' };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   /** Delimiter */
   const [delimiterPercentPosition, setDelimiterPercentPosition] = useState<number>(START_POSITION);

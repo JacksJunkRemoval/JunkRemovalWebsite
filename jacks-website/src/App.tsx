@@ -7,6 +7,7 @@ import OurWorkPage from './components/WorkSample/OurWorkPage';
 import FAQPage from './components/FAQ/FAQPage';
 import ContactPage from './components/Contact/ContactPage';
 import Footer from './components/Footer/Footer'
+import './App.css'
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className='background-container'>
       <Header toggleNavbar={toggleNavbar} />
         
         <Routes>

@@ -1,28 +1,3 @@
-body {
-  background: url('./MainImage.jpeg') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-@supports (background-image: url('./MainImage.webp')) {
-  body {
-    background-image: url('./MainImage.webp');
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  body {
-    background-position: top center;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  body {
-    background-position: center center;
-    background-size: contain;
-}
-}
-
 .header {
   top: 0;
   left: 0;

@@ -124,9 +124,9 @@ const OurWorkPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
   return (
     <div className="text-center p-10 min-h-[72vh] bg-white flex-col flex justify-center items-center">
 
-      <h1 className={`text-3xl font-bold mb-4 ${isNavbarOpen ? 'visible' : 'visible'}`}>Our Work</h1>
+      <h1 className={`text-6xl font-bold mb-4 ${isNavbarOpen ? 'visible' : 'visible'}`}>Examples of Our Work</h1>
 
-      <p className={`font-bold ${isNavbarOpen ? 'visivle' : 'visible'}`}>Drag the sliders below to see before and after!</p>
+      <p className={`font-bold text-4xl ${isNavbarOpen ? 'visivle' : 'visible'}`}>Drag the sliders below to see before and after!</p>
 
       <div className='all-work-container lg:w-[80%]'>
 

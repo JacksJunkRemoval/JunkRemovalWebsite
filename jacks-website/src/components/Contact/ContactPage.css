@@ -22,7 +22,7 @@ label {
 }
 
 input:focus ~ label,
-input:not(.phone):valid ~ label:not(.phone),
+input:not(.email):valid ~ label:not(.email),
 input.has-content ~ label {
     top: -24px;
     font-size: 14px;

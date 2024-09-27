@@ -116,10 +116,9 @@ const ContactPage: React.FC = ({}) => {
               id="email"
               type="email"
               name="email"
-              required
               value={formData.email}
               onChange={handleInputChange}
-              className={`w-full input-field pl-10 py-2 keep-raised ${
+              className={`w-full email input-field pl-10 py-2 keep-raised ${
                 formData.email ? 'has-content' : ''
               }`}
             />
@@ -132,6 +131,7 @@ const ContactPage: React.FC = ({}) => {
               id="phone"
               type="tel"
               name="phone"
+              required
               value={formData.phone}
               onChange={handleInputChange}
               className={`w-full phone input-field pl-10 py-2 keep-raised ${

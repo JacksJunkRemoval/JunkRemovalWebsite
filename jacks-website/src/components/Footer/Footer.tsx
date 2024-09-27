@@ -11,7 +11,6 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex flex-row items-center justify-evenly">
           <p className="text-white">(503) 305 0068</p>
-          <p className="text-white">jack@jacksremoval.com</p>
         </div>
         <div className="col-span-2">
           <p className="text-[lightgray]">&copy; 2024 Jack's Junk Removal LLC All rights reserved</p>

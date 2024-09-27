@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('./MainImage.webp') no-repeat center center;
+    background: url('/MainImage.webp') no-repeat center center;
     background-size: cover;
     background-attachment: fixed; 
     min-height: 100vh;  

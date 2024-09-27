@@ -1,7 +1,13 @@
 body {
-  background: url('/MainImage.webp') no-repeat center center;
+  background: url('./MainImage.jpeg') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
+}
+
+@supports (background-image: url('./MainImage.webp')) {
+  body {
+    background-image: url('./MainImage.webp');
+  }
 }
 
 @media only screen and (max-width: 768px) {

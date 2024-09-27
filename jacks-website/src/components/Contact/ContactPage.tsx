@@ -43,8 +43,17 @@ const ContactPage: React.FC = ({}) => {
     event.preventDefault();
     setIsSubmitting(true);
 
+    const apiUrl = import.meta.env.VITE_CONTACT_API_URL;
+
+    if (!apiUrl) {
+      console.error('VITE_CONTACT_API_URL is not defined');
+      alert('Failed to send message. Please try again later.');
+      setIsSubmitting(false);
+      return;
+    }
+  
     try {
-      await axios.post('https://jacks-website-backend.onrender.com/api/contact', formData);
+      await axios.post(apiUrl, formData);
       alert('Message sent successfully!');
       setFormData({
         firstname: '',

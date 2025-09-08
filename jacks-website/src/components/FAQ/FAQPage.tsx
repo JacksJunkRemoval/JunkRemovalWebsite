@@ -110,20 +110,6 @@ const FAQPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
           </Typography>
         </AccordionDetails>
       </FAQAccordion>
-      <FAQAccordion expanded={selected === 4} onChange={handleAccordionChange(4)}>
-        <AccordionSummary expandIcon={<FAQExpand />}>
-          <Typography
-            sx={{
-              fontWeight: selected === 4 ? 'bold' : 'normal',
-            }}
-          >Can you help if my garbage bin is overflowing before the scheduled pickup?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Absolutely! We understand that unexpected events can lead to an excess of waste. We can empty your overflowing garbage bin and provide the assistance you need to keep your space clean.
-          </Typography>
-        </AccordionDetails>
-      </FAQAccordion>
       <FAQAccordion expanded={selected === 5} onChange={handleAccordionChange(5)}>
         <AccordionSummary expandIcon={<FAQExpand />}>
           <Typography

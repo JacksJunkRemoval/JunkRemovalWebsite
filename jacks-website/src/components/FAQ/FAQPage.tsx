@@ -96,20 +96,6 @@ const FAQPage: React.FC<LandingPageProps> = ({ isNavbarOpen}) => {
           </Typography>
         </AccordionDetails>
       </FAQAccordion>
-      <FAQAccordion expanded={selected === 3} onChange={handleAccordionChange(3)}>
-        <AccordionSummary expandIcon={<FAQExpand />}>
-          <Typography
-            sx={{
-              fontWeight: selected === 3 ? 'bold' : 'normal',
-            }}
-          >Do you offer any specific services for Multnomah county?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            In Multnomah county, where garbage bins are picked up every two weeks, we offer an 'overflowing garbage can service' or 'excess garbage service'. Whether it's because your fridge broke unexpectedly or your power got shut off, we can help you manage your excess waste efficiently.
-          </Typography>
-        </AccordionDetails>
-      </FAQAccordion>
       <FAQAccordion expanded={selected === 5} onChange={handleAccordionChange(5)}>
         <AccordionSummary expandIcon={<FAQExpand />}>
           <Typography
